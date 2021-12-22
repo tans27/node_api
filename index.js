@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const path = require('path');
 
 const port = 8000;
 
@@ -30,6 +31,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/api", todoRoutes);
+
+const viewPath = path.join(__dirname, './views')
+app.set('view engine', 'ejs')
+app.set('views', viewPath);
 
 app.listen(port, () => {
     console.log(`Listening to http://localhost:${port}`);

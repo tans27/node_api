@@ -65,3 +65,10 @@ exports.deleteTodo = (req,res) =>{
 
     } )
 }
+
+exports.create = (req, res) => {
+    res.render('create')
+};
+exports.get = (req, res) => {
+    res.render('home')
+};
